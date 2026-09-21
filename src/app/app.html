@@ -2,12 +2,8 @@
 
 <ns-about />
 
-<h1 [textContent]="title()"></h1>
+<ns-help />
 
 <button type="button" (click)="addExcitement()">Add Excitement!</button>
-
-<p>
-  <input type="text" (focus)="sayHello()" (blur)="sayGoodbye()" />
-</p>
 
 <router-outlet />

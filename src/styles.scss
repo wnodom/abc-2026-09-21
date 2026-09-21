@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-ns-about {
-  outline: 3px solid red;
+ns-about,
+ns-help {
+  outline: 3px solid green;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
