@@ -9,4 +9,18 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('workshop-app');
+
+  protected sayHello() {
+    console.log('Howdy!');
+  }
+
+  protected sayGoodbye() {
+    console.log(':-(');
+  }
+
+  protected addExcitement() {
+    this.title.set(this.title() + '!');
+
+    this.title.update((currentValue) => currentValue + '!');
+  }
 }
