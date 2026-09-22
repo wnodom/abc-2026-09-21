@@ -1,13 +1,14 @@
-import { JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 @Component({
-  imports: [JsonPipe],
+  imports: [],
   selector: 'ns-video-list',
   styleUrl: './video-list.scss',
   templateUrl: './video-list.html',
 })
 export class VideoList {
+  protected readonly showDetails = signal(true);
+
   protected readonly videos = signal(
     JSON.parse(`
     

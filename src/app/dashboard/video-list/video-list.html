@@ -1,3 +1,17 @@
-<p>video-list works!</p>
+<header><h2>Video List</h2></header>
 
-<pre>{{ videos() | json }}</pre>
+<button type="button" (click)="showDetails.update((v) => !v)">
+  Toggle Details
+</button>
+
+@for (video of videos(); track video.id) {
+  <p>
+    {{ video.title }}
+
+    @if (showDetails()) {
+      - {{ video.author }}
+    }
+  </p>
+}
+
+<!-- <pre>{{ videos() | json }}</pre> -->
