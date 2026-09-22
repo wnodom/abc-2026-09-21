@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { VideoList } from './video-list/video-list';
 
 @Component({
-  imports: [],
+  imports: [VideoList],
   selector: 'ns-dashboard',
   styleUrl: './dashboard.scss',
   templateUrl: './dashboard.html',
