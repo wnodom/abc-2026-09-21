@@ -7,5 +7,9 @@ export const routes: Routes = [
     loadComponent: () => import('./about/about'),
   },
   { path: 'help', loadComponent: () => import('./help/help') },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./dashboard/dashboard'),
+  },
   { path: '**', redirectTo: 'help' },
 ];
