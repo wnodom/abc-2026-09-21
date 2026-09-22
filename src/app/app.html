@@ -1,8 +1,15 @@
 <h1>{{ title() }}</h1>
 
-<ns-about />
-
-<ns-help />
+<nav>
+  <ul>
+    <li routerLinkActive="active-link">
+      <a routerLink="about">About</a>
+    </li>
+    <li routerLinkActive="active-link">
+      <a routerLink="help">Help</a>
+    </li>
+  </ul>
+</nav>
 
 <button type="button" (click)="addExcitement()">Add Excitement!</button>
 
