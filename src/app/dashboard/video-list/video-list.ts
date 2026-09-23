@@ -10,7 +10,7 @@ import { Video } from '../../types';
 
 import { HttpClient } from '@angular/common/http';
 import { AsyncPipe } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   imports: [VideoThumbnail, AsyncPipe],
@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './video-list.scss',
   templateUrl: './video-list.html',
 })
-export class VideoList implements OnDestroy {
+export class VideoList {
   public readonly selectVideo = output<Video>();
 
   protected readonly showDetails = signal(true);
@@ -27,27 +27,15 @@ export class VideoList implements OnDestroy {
     undefined,
   );
 
-  protected readonly videos = signal<Video[]>([]);
+  private readonly http = inject(HttpClient);
 
-  // private readonly http = inject(HttpClient);
-
-  protected videos$ = inject(HttpClient).get<Video[]>(
+  private readonly videos$ = this.http.get<Video[]>(
     'https://api.angularbootcamp.com/videos',
   );
 
-  protected videoData: Video[] = [];
-
-  private sub: Subscription;
-
-  constructor() {
-    this.sub = this.videos$.subscribe((data) =>
-      this.videos.set(data),
-    );
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  protected readonly videos = toSignal(this.videos$, {
+    initialValue: [],
+  });
 
   protected pickVideo(video: Video) {
     this.currentVideo.set(video);
