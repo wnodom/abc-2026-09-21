@@ -3,5 +3,24 @@
 @let video = this.video();
 
 @if (video) {
+  <iframe
+    width="560"
+    height="315"
+    [src]="videoURL()"
+    title="YouTube video player"
+    frameborder="0"
+    allow="
+      accelerometer;
+      autoplay;
+      clipboard-write;
+      encrypted-media;
+      gyroscope;
+      picture-in-picture;
+      web-share;
+    "
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+
   <p>{{ video.title }}</p>
 }
