@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { VideoThumbnail } from '../video-thumbnail/video-thumbnail';
 import { Video } from '../../types';
 
@@ -9,6 +9,8 @@ import { Video } from '../../types';
   templateUrl: './video-list.html',
 })
 export class VideoList {
+  public readonly selectVideo = output<Video>();
+
   protected readonly showDetails = signal(true);
 
   protected readonly currentVideo = signal<Video | undefined>(
@@ -393,6 +395,12 @@ export class VideoList {
     
     `),
   );
+
+  protected pickVideo(video: Video) {
+    this.currentVideo.set(video);
+
+    this.selectVideo.emit(video);
+  }
 
   // private readonly currentVideoLogger = effect(() => {
   //   console.log(this.currentVideo());

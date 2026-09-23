@@ -1,1 +1,7 @@
 <header><h2>Video Player</h2></header>
+
+@let video = this.video();
+
+@if (video) {
+  <p>{{ video.title }}</p>
+}
