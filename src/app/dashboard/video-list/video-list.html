@@ -5,13 +5,16 @@
 </button>
 
 @for (video of videos(); track video.id) {
-  <p>
+  <button
+    (click)="currentVideo.set(video)"
+    [class.highlighted]="video === currentVideo()"
+  >
     {{ video.title }}
 
     @if (showDetails()) {
-      - {{ video.author }}
+      - {{ video.author | uppercase }}
     }
-  </p>
+  </button>
 }
 
 <!-- <pre>{{ videos() | json }}</pre> -->

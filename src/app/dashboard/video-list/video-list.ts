@@ -1,13 +1,16 @@
-import { Component, signal } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
+import { Component, effect, signal } from '@angular/core';
 
 @Component({
-  imports: [],
+  imports: [UpperCasePipe],
   selector: 'ns-video-list',
   styleUrl: './video-list.scss',
   templateUrl: './video-list.html',
 })
 export class VideoList {
   protected readonly showDetails = signal(true);
+
+  protected readonly currentVideo = signal<any>(undefined);
 
   protected readonly videos = signal(
     JSON.parse(`
@@ -387,4 +390,8 @@ export class VideoList {
     
     `),
   );
+
+  private readonly currentVideoLogger = effect(() => {
+    console.log(this.currentVideo());
+  });
 }
