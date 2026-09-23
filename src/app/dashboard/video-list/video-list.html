@@ -10,7 +10,9 @@
     (click)="currentVideo.set(video)"
     [class.highlighted]="video === currentVideo()"
   >
-    <!-- <ns-video-thumbnail [video]="video" [expanded]="showDetails()" /> -->
-    <ns-video-thumbnail [video]="video" />
+    <ns-video-thumbnail
+      [video]="video"
+      [expanded]="showDetails()"
+    />
   </button>
 }

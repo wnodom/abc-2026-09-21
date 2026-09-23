@@ -11,9 +11,11 @@ import { Video } from '../../types';
 export class VideoList {
   protected readonly showDetails = signal(true);
 
-  protected readonly currentVideo = signal<Video | undefined>(undefined);
+  protected readonly currentVideo = signal<Video | undefined>(
+    undefined,
+  );
 
-  protected readonly videos = signal(
+  protected readonly videos = signal<Video[]>(
     JSON.parse(`
     
 [

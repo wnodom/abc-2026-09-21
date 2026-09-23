@@ -1,10 +1,12 @@
 @let v = video();
 
-<img [alt]="v.title" [src]="`http://img.youtube.com/vi/${v.id}/0.jpg`" />
+<img
+  [alt]="v.title"
+  [src]="`http://img.youtube.com/vi/${v.id}/0.jpg`"
+/>
 
 {{ v.title }}
 
-<!-- 
 @if (expanded()) {
   - {{ v.author | uppercase }}
-} -->
+}

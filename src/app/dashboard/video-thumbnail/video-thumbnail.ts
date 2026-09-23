@@ -10,4 +10,5 @@ import { Video } from '../../types';
 })
 export class VideoThumbnail {
   public readonly video = input.required<Video>();
+  public readonly expanded = input<boolean>();
 }
