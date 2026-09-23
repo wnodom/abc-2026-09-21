@@ -6,6 +6,7 @@
 
 @for (video of videos(); track video.id) {
   <button
+    class="unstyled-button"
     (click)="currentVideo.set(video)"
     [class.highlighted]="video === currentVideo()"
   >

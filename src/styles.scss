@@ -20,3 +20,26 @@ ns-video-player {
 .highlighted {
   outline: 3px solid red;
 }
+
+.unstyled-button {
+  /* 1. Reset layout and backgrounds */
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  /* 2. Inherit typography from parents */
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  line-height: inherit;
+
+  /* 3. Maintain intuitive cursor behavior */
+  cursor: pointer;
+}
+
+/* 4. CRITICAL FOR ACCESSIBILITY: Visible Focus Indicators */
+.unstyled-button:focus-visible {
+  /* Reverts the focus ring back to the browser's default accessible outline */
+  outline: revert;
+}
