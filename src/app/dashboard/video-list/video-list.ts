@@ -24,12 +24,12 @@ export class VideoList {
 
   protected readonly showDetails = signal(true);
 
-  protected readonly currentVideo = signal<Video | undefined>(
+  protected readonly chosenVideo = signal<Video | undefined>(
     undefined,
   );
 
   protected pickVideo(video: Video) {
-    this.currentVideo.set(video);
+    this.chosenVideo.set(video);
 
     this.selectVideo.emit(video);
   }

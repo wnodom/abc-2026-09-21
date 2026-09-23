@@ -23,9 +23,12 @@ export default class Dashboard {
 
   private readonly vds = inject(VideoDataService);
 
-  protected readonly videos = toSignal(this.vds.loadVideos(), {
-    initialValue: [],
-  });
+  protected readonly videoData = toSignal(
+    this.vds.loadVideos(),
+    {
+      initialValue: [],
+    },
+  );
 
   private readonly currentVideoLogger = effect(() => {
     console.log(this.currentVideo());

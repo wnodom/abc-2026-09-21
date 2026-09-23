@@ -8,7 +8,7 @@
   <button
     class="unstyled-button"
     (click)="pickVideo(video)"
-    [class.highlighted]="video === currentVideo()"
+    [class.highlighted]="video === chosenVideo()"
   >
     <ns-video-thumbnail
       [video]="video"
