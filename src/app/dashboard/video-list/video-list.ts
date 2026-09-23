@@ -1,6 +1,7 @@
 import {
   Component,
   inject,
+  input,
   output,
   signal,
 } from '@angular/core';
@@ -17,6 +18,8 @@ import { VideoDataService } from '../../video-data-service';
   templateUrl: './video-list.html',
 })
 export class VideoList {
+  public readonly videos = input.required<Video[]>();
+
   public readonly selectVideo = output<Video>();
 
   protected readonly showDetails = signal(true);
@@ -24,12 +27,6 @@ export class VideoList {
   protected readonly currentVideo = signal<Video | undefined>(
     undefined,
   );
-
-  private readonly vds = inject(VideoDataService);
-
-  protected readonly videos = toSignal(this.vds.loadVideos(), {
-    initialValue: [],
-  });
 
   protected pickVideo(video: Video) {
     this.currentVideo.set(video);
