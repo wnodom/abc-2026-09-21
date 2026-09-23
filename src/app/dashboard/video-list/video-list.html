@@ -10,6 +10,11 @@
     (click)="currentVideo.set(video)"
     [class.highlighted]="video === currentVideo()"
   >
+    <img
+      [alt]="video.title"
+      [src]="`http://img.youtube.com/vi/${video.id}/0.jpg`"
+    />
+
     {{ video.title }}
 
     @if (showDetails()) {
