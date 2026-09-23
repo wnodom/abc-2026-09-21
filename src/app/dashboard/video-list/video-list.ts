@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { VideoThumbnail } from '../video-thumbnail/video-thumbnail';
+import { Video } from '../../types';
 
 @Component({
   imports: [VideoThumbnail],
@@ -10,7 +11,7 @@ import { VideoThumbnail } from '../video-thumbnail/video-thumbnail';
 export class VideoList {
   protected readonly showDetails = signal(true);
 
-  protected readonly currentVideo = signal<any>(undefined);
+  protected readonly currentVideo = signal<Video | undefined>(undefined);
 
   protected readonly videos = signal(
     JSON.parse(`
