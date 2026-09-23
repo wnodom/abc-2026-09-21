@@ -1,5 +1,5 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   imports: [UpperCasePipe],
@@ -391,7 +391,7 @@ export class VideoList {
     `),
   );
 
-  private readonly currentVideoLogger = effect(() => {
-    console.log(this.currentVideo());
-  });
+  // private readonly currentVideoLogger = effect(() => {
+  //   console.log(this.currentVideo());
+  // });
 }
