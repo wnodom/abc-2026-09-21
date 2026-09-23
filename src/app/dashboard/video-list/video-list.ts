@@ -1,8 +1,8 @@
-import { UpperCasePipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { VideoThumbnail } from '../video-thumbnail/video-thumbnail';
 
 @Component({
-  imports: [UpperCasePipe],
+  imports: [VideoThumbnail],
   selector: 'ns-video-list',
   styleUrl: './video-list.scss',
   templateUrl: './video-list.html',

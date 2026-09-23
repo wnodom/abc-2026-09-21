@@ -10,17 +10,7 @@
     (click)="currentVideo.set(video)"
     [class.highlighted]="video === currentVideo()"
   >
-    <img
-      [alt]="video.title"
-      [src]="`http://img.youtube.com/vi/${video.id}/0.jpg`"
-    />
-
-    {{ video.title }}
-
-    @if (showDetails()) {
-      - {{ video.author | uppercase }}
-    }
+    <!-- <ns-video-thumbnail [video]="video" [expanded]="showDetails()" /> -->
+    <ns-video-thumbnail [video]="video" />
   </button>
 }
-
-<!-- <pre>{{ videos() | json }}</pre> -->
