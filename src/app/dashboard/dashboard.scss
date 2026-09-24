@@ -3,9 +3,9 @@
 
   // prettier-ignore
   grid:
-    ' header  header '
-    ' list    player ' /
-      1fr     2fr
+    ' header  header header  '
+    ' list    player filters ' /
+      1fr     2fr    1fr
     ;
 }
 
@@ -19,4 +19,8 @@ ns-video-list {
 
 ns-video-player {
   grid-area: player;
+}
+
+ns-stat-filters {
+  grid-area: filters;
 }
