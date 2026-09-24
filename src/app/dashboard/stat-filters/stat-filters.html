@@ -1,1 +1,12 @@
-<p>stat-filters works!</p>
+<header><h2>Stat Filters</h2></header>
+
+<form [formGroup]="fg">
+  <label for="partialTitle">Partial Title</label>
+  <input
+    type="text"
+    id="partialTitle"
+    [formControl]="fg.controls.partialTitle"
+  />
+</form>
+
+<pre>{{ fg.value | json }}</pre>
