@@ -1,5 +1,6 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   FormBuilder,
   ReactiveFormsModule,
@@ -12,7 +13,18 @@ import {
   templateUrl: './stat-filters.html',
 })
 export class StatFilters {
+  public readonly partialTitleChanged = output<string>();
+
   protected readonly fg = inject(FormBuilder).group({
     partialTitle: [''],
   });
+
+  constructor() {
+    this.fg.controls.partialTitle.valueChanges
+      .pipe(takeUntilDestroyed())
+      .subscribe((v) => {
+        console.log(v);
+        this.partialTitleChanged.emit(v ?? '');
+      });
+  }
 }

@@ -34,4 +34,8 @@ export default class Dashboard {
   private readonly currentVideoLogger = effect(() => {
     console.log(this.currentVideo());
   });
+
+  notifyOfTitleChange(s: string) {
+    console.log('FROM DASHBOARD', s);
+  }
 }

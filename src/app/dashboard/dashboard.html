@@ -7,4 +7,6 @@
 
 <ns-video-player [video]="currentVideo()" />
 
-<ns-stat-filters />
+<ns-stat-filters
+  (partialTitleChanged)="notifyOfTitleChange($event)"
+/>
